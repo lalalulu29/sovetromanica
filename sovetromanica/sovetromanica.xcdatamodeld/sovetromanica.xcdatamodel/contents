@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="LikeAnime" representedClassName="LikeAnime" syncable="YES" codeGenerationType="class">
+        <attribute name="anime_description" optional="YES" attributeType="String"/>
+        <attribute name="anime_episodes" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="anime_folder" optional="YES" attributeType="String"/>
+        <attribute name="anime_id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="anime_keywords" optional="YES" attributeType="String"/>
+        <attribute name="anime_name" optional="YES" attributeType="String"/>
+        <attribute name="anime_name_russian" optional="YES" attributeType="String"/>
+        <attribute name="anime_studio" optional="YES" attributeType="String"/>
+        <attribute name="anime_year" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+    </entity>
+    <elements>
+        <element name="LikeAnime" positionX="31.7890625" positionY="29.30859375" width="128" height="208"/>
+    </elements>
 </model>
