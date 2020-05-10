@@ -42,7 +42,6 @@ class PreferredAnimeViewController: UIViewController {
         initInfo()
         downloadInfoSeries()
         preferAnimeBarButtonImage()
-        print ("hello!")
         
         
         // Do any additional setup after loading the view.
