@@ -369,16 +369,19 @@ extension PreferredAnimeViewController: UICollectionViewDataSource,UICollectionV
         let folder = animeInfo?.anime_folder!
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! AnimeSeriesCollectionViewCell
         cell.activityIndicator.startAnimating()
+        cell.seriesNimber.isHidden = true
         var series: animeSeriesStruct?
         
         if sub {
             cell.imageSerie.isHidden = true
             series = animeSub[indexPath.row]
+            cell.seriesNimber.text = " Серия \((series?.episode_count)!)"
             dubOrSub = "sub"
             
         } else {
             cell.imageSerie.isHidden = true
             series = animeDub[indexPath.row]
+            cell.seriesNimber.text = " Серия \((series?.episode_count)!)"
             dubOrSub = "dub"
         }
         let testURl = [      "https://chitoge.sovetromantica.com/anime/\((series?.episode_anime)!)_\(folder!)/images/episode_\(indexPath.row + 1)_\(self.dubOrSub!).jpg",
@@ -398,6 +401,7 @@ extension PreferredAnimeViewController: UICollectionViewDataSource,UICollectionV
                     cell.activityIndicator.stopAnimating()
                     cell.activityIndicator.isHidden = true
                     cell.imageSerie.isHidden = false
+                    cell.seriesNimber.isHidden = false
                 }
             }
             }

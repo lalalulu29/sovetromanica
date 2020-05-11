@@ -11,5 +11,10 @@ import UIKit
 class AnimeSeriesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageSerie: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var seriesNimber: UILabel!
+    @IBAction func downloadSeries(_ sender: UIButton) {
+        print ("1")
+    }
     
+
 }

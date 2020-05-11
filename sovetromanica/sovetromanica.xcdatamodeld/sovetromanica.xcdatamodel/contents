@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DownloadAnime" representedClassName="DownloadAnime" syncable="YES" codeGenerationType="class">
+        <attribute name="animeName" optional="YES" attributeType="String"/>
+        <attribute name="imageSeries" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="nomberSeries" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="subOrDub" optional="YES" attributeType="String"/>
+        <attribute name="videoSeries" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+    </entity>
     <entity name="LikeAnime" representedClassName="LikeAnime" syncable="YES" codeGenerationType="class">
         <attribute name="anime_description" optional="YES" attributeType="String"/>
         <attribute name="anime_episodes" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -15,5 +22,6 @@
     </entity>
     <elements>
         <element name="LikeAnime" positionX="31.7890625" positionY="29.30859375" width="128" height="208"/>
+        <element name="DownloadAnime" positionX="36" positionY="108" width="128" height="118"/>
     </elements>
 </model>
