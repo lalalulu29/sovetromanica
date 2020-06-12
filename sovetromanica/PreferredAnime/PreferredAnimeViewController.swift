@@ -217,6 +217,7 @@ class PreferredAnimeViewController: UIViewController {
             
         }
         
+
     
     @IBAction func addToFavorite(_ sender: UIButton) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -232,11 +233,12 @@ class PreferredAnimeViewController: UIViewController {
         if let result = try? context.fetch(featch) {
             for object in result {
                 if object.anime_id == (animeInfo?.anime_id)! {
-                    
+                    do {
                     context.delete(object)
+                    try context.save()
                     preferAnimeBarButtonImage()
                     return
-
+                    } catch {}
                 }
             }
         }
@@ -368,13 +370,20 @@ extension PreferredAnimeViewController: UICollectionViewDataSource,UICollectionV
         
         let folder = animeInfo?.anime_folder!
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! AnimeSeriesCollectionViewCell
+        
+        
+        
+
         cell.activityIndicator.startAnimating()
+        cell.downloadSeriesOutlet.isHidden = true
+        cell.backgroundButtonDownloadSeries.isHidden = true
         cell.seriesNimber.isHidden = true
         var series: animeSeriesStruct?
-        
+        cell.identificator = (animeInfo?.anime_id)!
         if sub {
             cell.imageSerie.isHidden = true
             series = animeSub[indexPath.row]
+            
             cell.seriesNimber.text = " Серия \((series?.episode_count)!)"
             dubOrSub = "sub"
             
@@ -384,6 +393,9 @@ extension PreferredAnimeViewController: UICollectionViewDataSource,UICollectionV
             cell.seriesNimber.text = " Серия \((series?.episode_count)!)"
             dubOrSub = "dub"
         }
+        cell.urlSeries = series?.embed
+        cell.dubOrSub = dubOrSub
+        
         let testURl = [      "https://chitoge.sovetromantica.com/anime/\((series?.episode_anime)!)_\(folder!)/images/episode_\(indexPath.row + 1)_\(self.dubOrSub!).jpg",
             "https://scu3.sovetromantica.com/anime/\((series?.episode_anime)!)_\(folder!)/images/episode_\(indexPath.row + 1)_\(self.dubOrSub!).jpg",
             "https://scu2.sovetromantica.com/anime/\((series?.episode_anime)!)_\(folder!)/images/episode_\(indexPath.row + 1)_\(self.dubOrSub!).jpg",
@@ -398,13 +410,21 @@ extension PreferredAnimeViewController: UICollectionViewDataSource,UICollectionV
                 guard let dataImage = try? Data(contentsOf: url) else {continue}
                 DispatchQueue.main.async {
                     cell.imageSerie.image = UIImage(data: dataImage)
+                    cell.dataImage = dataImage
                     cell.activityIndicator.stopAnimating()
                     cell.activityIndicator.isHidden = true
                     cell.imageSerie.isHidden = false
                     cell.seriesNimber.isHidden = false
+                    cell.downloadSeriesOutlet.isHidden = false
+                    cell.backgroundButtonDownloadSeries.isHidden = false
+                    cell.serieNomber = (series?.episode_count)!
+                    
                 }
             }
             }
+            
+            
+        
 
                         
             //            print (url)
@@ -415,7 +435,6 @@ extension PreferredAnimeViewController: UICollectionViewDataSource,UICollectionV
             
             
         }
-
 
         
         

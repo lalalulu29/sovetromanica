@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Oqg-aj-k0K">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Oqg-aj-k0K">
     <device id="retina5_9" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -113,13 +113,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Лист избранных аниме" id="AHo-qq-mFA"/>
-                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="dB8-nA-QBQ">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <connections>
-                            <action selector="reloadData:" destination="Jic-x2-bDE" eventType="valueChanged" id="yoa-1b-804"/>
-                        </connections>
-                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d3G-jb-ZtE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -298,6 +291,23 @@
                                                         <constraint firstAttribute="width" constant="20" id="zTo-Mr-Z1Q"/>
                                                     </constraints>
                                                 </activityIndicatorView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPV-aO-6vY">
+                                                    <rect key="frame" x="115.66666666666669" y="3.6666666666666679" width="30" height="30.000000000000004"/>
+                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="9Oa-Jp-ZoR"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="PG6-GG-hME"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Серия" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ob5-PF-Hr7">
                                                     <rect key="frame" x="3" y="66" width="70" height="22"/>
                                                     <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -316,7 +326,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPZ-JO-yHc">
-                                                    <rect key="frame" x="126" y="5" width="29" height="27"/>
+                                                    <rect key="frame" x="116" y="5" width="29" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="27" id="77c-eU-jfE"/>
                                                         <constraint firstAttribute="width" constant="29" id="TVo-cM-5i4"/>
@@ -328,20 +338,24 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="MPV-aO-6vY" firstAttribute="centerY" secondItem="yPZ-JO-yHc" secondAttribute="centerY" id="9Mo-WI-Ank"/>
                                                 <constraint firstItem="ZSa-vm-wTM" firstAttribute="top" secondItem="gdC-7U-MQT" secondAttribute="top" id="B5I-0V-fiN"/>
                                                 <constraint firstItem="ZSa-vm-wTM" firstAttribute="leading" secondItem="gdC-7U-MQT" secondAttribute="leading" id="DN2-RY-Uye"/>
                                                 <constraint firstItem="5dh-9y-zkz" firstAttribute="centerY" secondItem="ZSa-vm-wTM" secondAttribute="centerY" id="EC8-5T-wfW"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ob5-PF-Hr7" secondAttribute="trailing" constant="77" id="OsF-qJ-dm6"/>
+                                                <constraint firstItem="MPV-aO-6vY" firstAttribute="centerX" secondItem="yPZ-JO-yHc" secondAttribute="centerX" id="P09-Iu-FlE"/>
                                                 <constraint firstItem="Ob5-PF-Hr7" firstAttribute="leading" secondItem="gdC-7U-MQT" secondAttribute="leading" constant="3" id="T6I-Si-jtP"/>
                                                 <constraint firstAttribute="bottom" secondItem="Ob5-PF-Hr7" secondAttribute="bottom" constant="2" id="TB0-4S-wBV"/>
                                                 <constraint firstItem="5dh-9y-zkz" firstAttribute="centerX" secondItem="ZSa-vm-wTM" secondAttribute="centerX" id="r7k-un-lcf"/>
                                                 <constraint firstItem="yPZ-JO-yHc" firstAttribute="top" secondItem="gdC-7U-MQT" secondAttribute="top" constant="5" id="seR-kl-OhX"/>
-                                                <constraint firstAttribute="trailing" secondItem="yPZ-JO-yHc" secondAttribute="trailing" constant="5" id="uVa-E1-KWl"/>
+                                                <constraint firstAttribute="trailing" secondItem="yPZ-JO-yHc" secondAttribute="trailing" constant="15" id="uVa-E1-KWl"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="160" height="90"/>
                                         <connections>
                                             <outlet property="activityIndicator" destination="5dh-9y-zkz" id="Pec-4h-VV2"/>
+                                            <outlet property="backgroundButtonDownloadSeries" destination="MPV-aO-6vY" id="uhK-2R-CUO"/>
+                                            <outlet property="downloadSeriesOutlet" destination="yPZ-JO-yHc" id="sdz-UN-Dyn"/>
                                             <outlet property="imageSerie" destination="ZSa-vm-wTM" id="TIh-nZ-JLR"/>
                                             <outlet property="seriesNimber" destination="Ob5-PF-Hr7" id="xn9-k7-14J"/>
                                         </connections>
@@ -562,6 +576,23 @@
                                                         <constraint firstAttribute="width" constant="20" id="oG3-km-pcF"/>
                                                     </constraints>
                                                 </activityIndicatorView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EnC-RO-boa">
+                                                    <rect key="frame" x="115.66666666666669" y="3.6666666666666679" width="30" height="30.000000000000004"/>
+                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="Jtd-EP-sTW"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="pX3-tZ-Zir"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Серия" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xkd-ul-uJ6">
                                                     <rect key="frame" x="3" y="66" width="70" height="22"/>
                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -580,7 +611,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oD0-j0-kdd">
-                                                    <rect key="frame" x="126" y="5" width="29" height="27"/>
+                                                    <rect key="frame" x="116" y="5" width="29" height="27"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="29" id="6Ke-0q-CpE"/>
                                                         <constraint firstAttribute="height" constant="27" id="MfD-5h-ea5"/>
@@ -592,12 +623,14 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="EnC-RO-boa" firstAttribute="centerX" secondItem="oD0-j0-kdd" secondAttribute="centerX" id="4wF-Bc-f4G"/>
                                                 <constraint firstItem="oD0-j0-kdd" firstAttribute="top" secondItem="M2q-h4-XQN" secondAttribute="top" constant="5" id="C9p-0U-jm9"/>
                                                 <constraint firstItem="FQB-AY-MbJ" firstAttribute="leading" secondItem="M2q-h4-XQN" secondAttribute="leading" id="FZP-7s-Olm"/>
                                                 <constraint firstItem="FQB-AY-MbJ" firstAttribute="top" secondItem="M2q-h4-XQN" secondAttribute="top" id="HTG-GY-4kC"/>
                                                 <constraint firstItem="foJ-rq-muW" firstAttribute="centerX" secondItem="FQB-AY-MbJ" secondAttribute="centerX" id="RSt-cv-G8W"/>
                                                 <constraint firstItem="foJ-rq-muW" firstAttribute="centerY" secondItem="FQB-AY-MbJ" secondAttribute="centerY" id="WJ7-fj-ODt"/>
-                                                <constraint firstAttribute="trailing" secondItem="oD0-j0-kdd" secondAttribute="trailing" constant="5" id="Yhe-qh-Z0L"/>
+                                                <constraint firstAttribute="trailing" secondItem="oD0-j0-kdd" secondAttribute="trailing" constant="15" id="Yhe-qh-Z0L"/>
+                                                <constraint firstItem="EnC-RO-boa" firstAttribute="centerY" secondItem="oD0-j0-kdd" secondAttribute="centerY" id="boy-yF-TSG"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Xkd-ul-uJ6" secondAttribute="trailing" constant="20" symbolic="YES" id="e0h-NS-765"/>
                                                 <constraint firstAttribute="bottom" secondItem="Xkd-ul-uJ6" secondAttribute="bottom" constant="2" id="ecK-Ww-Y0w"/>
                                                 <constraint firstItem="Xkd-ul-uJ6" firstAttribute="leading" secondItem="M2q-h4-XQN" secondAttribute="leading" constant="3" id="l1h-sg-jyR"/>
@@ -606,6 +639,8 @@
                                         <size key="customSize" width="160" height="90"/>
                                         <connections>
                                             <outlet property="activityIndicator" destination="foJ-rq-muW" id="Cye-Z8-nND"/>
+                                            <outlet property="backgroundButtonDownloadSeries" destination="EnC-RO-boa" id="ggF-tF-CpA"/>
+                                            <outlet property="downloadSeriesOutlet" destination="oD0-j0-kdd" id="uOb-Eb-Jjd"/>
                                             <outlet property="imageSerie" destination="FQB-AY-MbJ" id="QmP-y5-PiT"/>
                                             <outlet property="seriesNimber" destination="Xkd-ul-uJ6" id="YJG-Hj-WiO"/>
                                         </connections>

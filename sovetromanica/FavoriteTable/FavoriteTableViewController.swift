@@ -14,9 +14,9 @@ class FavoriteTableViewController: UITableViewController, UIApplicationDelegate 
     var anime: [LikeAnime] = []
     var readyGo = SearchAnime()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
 //        let appDelegate = UIApplication.shared.delegate as! AppDelegate
 //        let context = appDelegate.persistentContainer.viewContext
 //        let featch: NSFetchRequest<LikeAnime> = LikeAnime.fetchRequest()
@@ -39,16 +39,27 @@ class FavoriteTableViewController: UITableViewController, UIApplicationDelegate 
         }
 //
 //
-        
     
-    @IBAction func reloadData(_ sender: UIRefreshControl) {
-        tableView.reloadData()
-        refreshControl?.endRefreshing()
-//        viewWillAppear(true)
-    }
+    
+//    @IBAction func reloadData(_ sender: UIRefreshControl) {
+//        DispatchQueue.main.async {
+//            self.tableView.reloadData()
+//        }
+//
+//        refreshControl?.endRefreshing()
+////        viewWillAppear(true)
+//    }
+    
+//    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        tableView.reloadData()
+//    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
@@ -58,6 +69,7 @@ class FavoriteTableViewController: UITableViewController, UIApplicationDelegate 
         featch.sortDescriptors = [sort]
         do {
             anime = try context.fetch(featch)
+            anime = anime.reversed()
 //            anime = anime.reversed()
         } catch {
             print (error)
@@ -78,7 +90,6 @@ class FavoriteTableViewController: UITableViewController, UIApplicationDelegate 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FavoriteTableViewCell
         
-
         let index = indexPath.row
         let fav = anime[index]
         
@@ -164,8 +175,8 @@ class FavoriteTableViewController: UITableViewController, UIApplicationDelegate 
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let context = appDelegate.persistentContainer.viewContext
             let featch: NSFetchRequest<LikeAnime> = LikeAnime.fetchRequest()
-            if let result = try? context.fetch(featch) {
-            
+            if var result = try? context.fetch(featch) {
+                result = result.reversed()
                 let an = result[indexPath.row]
                 print (result[indexPath.row])
                 readyGo.anime_description = an.anime_description

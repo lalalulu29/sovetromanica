@@ -29,7 +29,7 @@
 		4E05F3A424E46CA87F91C611 /* Pods-sovetromanica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sovetromanica.release.xcconfig"; path = "Target Support Files/Pods-sovetromanica/Pods-sovetromanica.release.xcconfig"; sourceTree = "<group>"; };
 		5FA9D73568973B7FDAB2202D /* Pods-sovetromanica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sovetromanica.debug.xcconfig"; path = "Target Support Files/Pods-sovetromanica/Pods-sovetromanica.debug.xcconfig"; sourceTree = "<group>"; };
 		A1FE09329A017C8FC15172CC /* Pods_sovetromanica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sovetromanica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		ED65660F23F48FE700470F75 /* sovetromanica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sovetromanica.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED65660F23F48FE700470F75 /* sovetromantica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sovetromantica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED65661223F48FE700470F75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED65661423F48FE700470F75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		ED65661923F48FE700470F75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 		ED65661023F48FE700470F75 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ED65660F23F48FE700470F75 /* sovetromanica.app */,
+				ED65660F23F48FE700470F75 /* sovetromantica.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -161,7 +161,7 @@
 			);
 			name = sovetromanica;
 			productName = sovetromanica;
-			productReference = ED65660F23F48FE700470F75 /* sovetromanica.app */;
+			productReference = ED65660F23F48FE700470F75 /* sovetromantica.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -414,6 +414,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 395GS436QF;
 				INFOPLIST_FILE = sovetromanica/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
@@ -422,7 +423,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ru.kirill98.sovetromanica;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = sovetromantica;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -434,6 +435,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 395GS436QF;
 				INFOPLIST_FILE = sovetromanica/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
@@ -442,7 +444,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ru.kirill98.sovetromanica;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = sovetromantica;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
