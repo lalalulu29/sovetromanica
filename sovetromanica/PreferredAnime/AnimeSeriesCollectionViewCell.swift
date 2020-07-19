@@ -17,6 +17,7 @@ class AnimeSeriesCollectionViewCell: UICollectionViewCell {
     var dataImage: Data?
     var serieNomber = 0
     var urlSeries: String?
+    
     @IBOutlet weak var imageSerie: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var seriesNimber: UILabel!
@@ -25,10 +26,10 @@ class AnimeSeriesCollectionViewCell: UICollectionViewCell {
     
     @IBAction func downloadSeries(_ sender: UIButton) {
         
-//        print (identificator)
-//        print (dubOrSub)
+        print (identificator)
+        print (dubOrSub)
 //        print (dataImage)
-//        print (serieNomber)
+        print (serieNomber)
         print (urlSeries!)
         
         

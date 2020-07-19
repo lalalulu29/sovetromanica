@@ -371,14 +371,14 @@ extension PreferredAnimeViewController: UICollectionViewDataSource,UICollectionV
         let folder = animeInfo?.anime_folder!
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! AnimeSeriesCollectionViewCell
         
-        
+        var series: animeSeriesStruct?
         
 
         cell.activityIndicator.startAnimating()
         cell.downloadSeriesOutlet.isHidden = true
         cell.backgroundButtonDownloadSeries.isHidden = true
         cell.seriesNimber.isHidden = true
-        var series: animeSeriesStruct?
+        
         cell.identificator = (animeInfo?.anime_id)!
         if sub {
             cell.imageSerie.isHidden = true
@@ -396,12 +396,14 @@ extension PreferredAnimeViewController: UICollectionViewDataSource,UICollectionV
         cell.urlSeries = series?.embed
         cell.dubOrSub = dubOrSub
         
-        let testURl = [      "https://chitoge.sovetromantica.com/anime/\((series?.episode_anime)!)_\(folder!)/images/episode_\(indexPath.row + 1)_\(self.dubOrSub!).jpg",
-            "https://scu3.sovetromantica.com/anime/\((series?.episode_anime)!)_\(folder!)/images/episode_\(indexPath.row + 1)_\(self.dubOrSub!).jpg",
-            "https://scu2.sovetromantica.com/anime/\((series?.episode_anime)!)_\(folder!)/images/episode_\(indexPath.row + 1)_\(self.dubOrSub!).jpg",
-            "https://scu1.sovetromantica.com/anime/\((series?.episode_anime)!)_\(folder!)/images/episode_\(indexPath.row + 1)_\(self.dubOrSub!).jpg",
-            "https://scu.sovetromantica.com/anime/\((series?.episode_anime)!)_\(folder!)/images/episode_\(indexPath.row + 1)_\(self.dubOrSub!).jpg"
+        
+        let testURl = [      "https://chitoge.sovetromantica.com/anime/\((series?.episode_anime)!)_\(folder!)/images/episode_\((series?.episode_count)!)_\(self.dubOrSub!).jpg",
+            "https://scu3.sovetromantica.com/anime/\((series?.episode_anime)!)_\(folder!)/images/episode_\((series?.episode_count)!)_\(self.dubOrSub!).jpg",
+            "https://scu2.sovetromantica.com/anime/\((series?.episode_anime)!)_\(folder!)/images/episode_\((series?.episode_count)!)_\(self.dubOrSub!).jpg",
+            "https://scu1.sovetromantica.com/anime/\((series?.episode_anime)!)_\(folder!)/images/episode_\((series?.episode_count)!)_\(self.dubOrSub!).jpg",
+            "https://scu.sovetromantica.com/anime/\((series?.episode_anime)!)_\(folder!)/images/episode_\((series?.episode_count)!)_\(self.dubOrSub!).jpg"
             ]
+        print(testURl)
         
         
         DispatchQueue.global().async {
