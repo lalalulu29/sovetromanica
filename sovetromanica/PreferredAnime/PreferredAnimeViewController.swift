@@ -202,8 +202,9 @@ class PreferredAnimeViewController: UIViewController {
     }
     
         func sortInfo() {
-            
-            for serie in animeSeries {
+            let sort = animeSeries.sorted{$0.episode_count! < $1.episode_count!}
+            for serie in sort {
+                
                 if serie.episode_type == 0 {
                     animeSub.append(serie)
                     
@@ -466,15 +467,18 @@ extension PreferredAnimeViewController: UICollectionViewDataSource,UICollectionV
             
             return}
         
-        guard let jiDoc = Ji(htmlURL: readyURL) else {return}
+//        guard let jiDoc = Ji(htmlURL: readyURL) else {return}
+//        print (readyURL)
+//        guard  let urlAnimeSerie = jiDoc.xPath("//video/@src")?.first else {return}
+//        let urlSeries = urlAnimeSerie.content!
+//        print (urlSeries)
         
-        guard  let urlAnimeSerie = jiDoc.xPath("///sourcex/@src")?.first else {return}
-        let urlSeries = urlAnimeSerie.content!
-        print (urlSeries)
         
+        let urlSeries = crutch(url: readyURL)
+
         DispatchQueue.main.async {
-            let videoURL = URL(string: urlSeries)
-            let player = AVPlayer(url: videoURL!)
+            guard let videoURL = URL(string: urlSeries) else {return}
+            let player = AVPlayer(url: videoURL)
                         
             let playerViewController = AVPlayerViewController()
 
@@ -494,4 +498,68 @@ extension PreferredAnimeViewController: UICollectionViewDataSource,UICollectionV
         
     }
     
+    //MARK: - Костыль для поиска в хтмл файле ссылки на файл серии
+
+    func crutch(url: URL) -> String {
+    
+        let html = try? String(contentsOf: url, encoding: String.Encoding.utf8)
+
+        let str = html!
+        var string = ""
+        if let index = str.index(of: "\", \"preroll") {
+        //    print (index)
+            let substring = str[..<index]   // ab
+            string = String(substring)
+//            print(string)
+            print("\"file\":\"https:")
+        
+            if let index = string.index(of: "\"file\":\"https:") {
+                let substring = string[index...]   // ab
+                let string = String(substring)
+                print(string)  // "ab\n"
+                if let index = string.index(of: "https:") {
+                    let substring = string[index...]   // ab
+                    let string = String(substring)
+                    print(string)  // "ab\n"
+                    return string
+                }
+            }
+        }
+
+        return "error"
+        
+    }
+    
+}
+
+
+extension StringProtocol where Index == String.Index {
+    func index(of string: Self, options: String.CompareOptions = []) -> Index? {
+        return range(of: string, options: options)?.lowerBound
+    }
+    func endIndex(of string: Self, options: String.CompareOptions = []) -> Index? {
+        return range(of: string, options: options)?.upperBound
+    }
+    func indexes(of string: Self, options: String.CompareOptions = []) -> [Index] {
+        var result: [Index] = []
+        var start = startIndex
+        while start < endIndex,
+            let range = self[start..<endIndex].range(of: string, options: options) {
+            result.append(range.lowerBound)
+            start = range.lowerBound < range.upperBound ? range.upperBound :
+                    index(range.lowerBound, offsetBy: 1, limitedBy: endIndex) ?? endIndex
+        }
+        return result
+    }
+    func ranges(of string: Self, options: String.CompareOptions = []) -> [Range<Index>] {
+        var result: [Range<Index>] = []
+        var start = startIndex
+        while start < endIndex,
+            let range = self[start..<endIndex].range(of: string, options: options) {
+            result.append(range)
+            start = range.lowerBound < range.upperBound ? range.upperBound :
+                    index(range.lowerBound, offsetBy: 1, limitedBy: endIndex) ?? endIndex
+        }
+        return result
+    }
 }
