@@ -20,6 +20,9 @@
 		ED968E262411ADD100C5C95A /* AnimeSeriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED968E252411ADD100C5C95A /* AnimeSeriesCollectionViewCell.swift */; };
 		ED968E292411C6B600C5C95A /* AnimeSeriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED968E282411C6B600C5C95A /* AnimeSeriesModel.swift */; };
 		EDA40CC92416D5DF0007D023 /* FavariteStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA40CC82416D5DF0007D023 /* FavariteStruct.swift */; };
+		EDB1F1DA24E1AF2E00780A66 /* LastSeriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB1F1D924E1AF2E00780A66 /* LastSeriesTableViewController.swift */; };
+		EDB1F1DC24E1AF8300780A66 /* LastSeriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB1F1DB24E1AF8300780A66 /* LastSeriesCell.swift */; };
+		EDB1F1DE24E1AFE200780A66 /* LastSeriesStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB1F1DD24E1AFE200780A66 /* LastSeriesStruct.swift */; };
 		EDD4D02B23F88C1A00DC13A2 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4D02A23F88C1A00DC13A2 /* SearchTableViewController.swift */; };
 		EDD4D02D23F88C4900DC13A2 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4D02C23F88C4900DC13A2 /* SearchTableViewCell.swift */; };
 		EDD4D03023F8A69900DC13A2 /* SearchAnimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD4D02F23F8A69900DC13A2 /* SearchAnimeModel.swift */; };
@@ -43,6 +46,9 @@
 		ED968E252411ADD100C5C95A /* AnimeSeriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeSeriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		ED968E282411C6B600C5C95A /* AnimeSeriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeSeriesModel.swift; sourceTree = "<group>"; };
 		EDA40CC82416D5DF0007D023 /* FavariteStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavariteStruct.swift; sourceTree = "<group>"; };
+		EDB1F1D924E1AF2E00780A66 /* LastSeriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastSeriesTableViewController.swift; sourceTree = "<group>"; };
+		EDB1F1DB24E1AF8300780A66 /* LastSeriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastSeriesCell.swift; sourceTree = "<group>"; };
+		EDB1F1DD24E1AFE200780A66 /* LastSeriesStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastSeriesStruct.swift; sourceTree = "<group>"; };
 		EDD4D02A23F88C1A00DC13A2 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		EDD4D02C23F88C4900DC13A2 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		EDD4D02F23F8A69900DC13A2 /* SearchAnimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAnimeModel.swift; sourceTree = "<group>"; };
@@ -103,6 +109,7 @@
 				EDD4D02923F88BCD00DC13A2 /* SearchTable */,
 				EDD4D02823F88B9D00DC13A2 /* FavoriteTable */,
 				ED968E272411C5EB00C5C95A /* PreferredAnime */,
+				EDB1F1D824E1AEE600780A66 /* Last series */,
 				ED65661823F48FE700470F75 /* Main.storyboard */,
 				ED65661E23F48FEC00470F75 /* Assets.xcassets */,
 				ED65662023F48FEC00470F75 /* LaunchScreen.storyboard */,
@@ -120,6 +127,16 @@
 				ED968E282411C6B600C5C95A /* AnimeSeriesModel.swift */,
 			);
 			path = PreferredAnime;
+			sourceTree = "<group>";
+		};
+		EDB1F1D824E1AEE600780A66 /* Last series */ = {
+			isa = PBXGroup;
+			children = (
+				EDB1F1D924E1AF2E00780A66 /* LastSeriesTableViewController.swift */,
+				EDB1F1DB24E1AF8300780A66 /* LastSeriesCell.swift */,
+				EDB1F1DD24E1AFE200780A66 /* LastSeriesStruct.swift */,
+			);
+			path = "Last series";
 			sourceTree = "<group>";
 		};
 		EDD4D02823F88B9D00DC13A2 /* FavoriteTable */ = {
@@ -257,17 +274,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDB1F1DC24E1AF8300780A66 /* LastSeriesCell.swift in Sources */,
 				ED968E262411ADD100C5C95A /* AnimeSeriesCollectionViewCell.swift in Sources */,
 				ED65661D23F48FE700470F75 /* sovetromanica.xcdatamodeld in Sources */,
 				EDD4D02B23F88C1A00DC13A2 /* SearchTableViewController.swift in Sources */,
 				EDD4D03023F8A69900DC13A2 /* SearchAnimeModel.swift in Sources */,
 				ED65662A23F493B500470F75 /* FavoriteTableViewController.swift in Sources */,
 				ED65661323F48FE700470F75 /* AppDelegate.swift in Sources */,
+				EDB1F1DE24E1AFE200780A66 /* LastSeriesStruct.swift in Sources */,
 				ED968E242411ACE700C5C95A /* PreferredAnimeViewController.swift in Sources */,
 				ED968E292411C6B600C5C95A /* AnimeSeriesModel.swift in Sources */,
 				ED65661523F48FE700470F75 /* SceneDelegate.swift in Sources */,
 				ED65662C23F4947900470F75 /* FavoriteTableViewCell.swift in Sources */,
 				EDA40CC92416D5DF0007D023 /* FavariteStruct.swift in Sources */,
+				EDB1F1DA24E1AF2E00780A66 /* LastSeriesTableViewController.swift in Sources */,
 				EDD4D02D23F88C4900DC13A2 /* SearchTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,7 +437,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 395GS436QF;
 				INFOPLIST_FILE = sovetromanica/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -438,7 +458,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 395GS436QF;
 				INFOPLIST_FILE = sovetromanica/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

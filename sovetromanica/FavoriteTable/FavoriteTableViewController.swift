@@ -17,42 +17,9 @@ class FavoriteTableViewController: UITableViewController, UIApplicationDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let context = appDelegate.persistentContainer.viewContext
-//        let featch: NSFetchRequest<LikeAnime> = LikeAnime.fetchRequest()
-//        if let result = try? context.fetch(featch) {
-//            for object in result {
-//
-//                    context.delete(object)
-//
-//
-//                    }
-//                }
-//
-//        do {
-//            try context.save()
-//
-//        } catch {
-//            print (error)
-//            }
-//
+
         }
-//
-//
-    
-    
-//    @IBAction func reloadData(_ sender: UIRefreshControl) {
-//        DispatchQueue.main.async {
-//            self.tableView.reloadData()
-//        }
-//
-//        refreshControl?.endRefreshing()
-////        viewWillAppear(true)
-//    }
-    
-//    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        tableView.reloadData()
-//    }
+
     
     
     override func viewWillAppear(_ animated: Bool) {

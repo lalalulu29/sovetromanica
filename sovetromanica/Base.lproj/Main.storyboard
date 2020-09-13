@@ -12,7 +12,7 @@
         <scene sceneID="ekg-oO-8Vd">
             <objects>
                 <tabBarController id="Oqg-aj-k0K" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mS3-7l-FTx">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="mS3-7l-FTx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -25,11 +25,123 @@
                     <connections>
                         <segue destination="P4m-B6-rx9" kind="relationship" relationship="viewControllers" id="9yT-Qj-1bs"/>
                         <segue destination="bho-Wv-BFI" kind="relationship" relationship="viewControllers" id="gKT-qc-Eud"/>
+                        <segue destination="Ru4-Rs-mFg" kind="relationship" relationship="viewControllers" id="ucq-xC-p9W"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tkn-aM-noB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-188" y="-110"/>
+            <point key="canvasLocation" x="-340" y="-113"/>
+        </scene>
+        <!--Последние серии-->
+        <scene sceneID="fke-Ec-Xc4">
+            <objects>
+                <tableViewController id="nia-Ee-kYJ" customClass="LastSeriesTableViewController" customModule="sovetromantica" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="SRB-mK-x8w">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="120" id="fPO-hL-8qg" customClass="LastSeriesCell" customModule="sovetromantica" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="120"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fPO-hL-8qg" id="PFg-Pa-EPL">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wbb-O8-BgX">
+                                            <rect key="frame" x="16" y="25" width="120" height="70"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="120" id="9ar-3c-ROk"/>
+                                                <constraint firstAttribute="height" constant="70" id="Shd-jY-X1d"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ebi-di-Bu1">
+                                            <rect key="frame" x="144" y="11" width="215" height="45"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="215" id="17M-ON-fDb"/>
+                                                <constraint firstAttribute="height" constant="45" id="Kue-36-WqF"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j22-ez-t1V">
+                                            <rect key="frame" x="144" y="64" width="100" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="N1L-Z6-iX9"/>
+                                                <constraint firstAttribute="height" constant="20" id="eyp-GN-s8S"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="mfY-kC-jYo">
+                                            <rect key="frame" x="66" y="50" width="20" height="20"/>
+                                        </activityIndicatorView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1l-Oc-qia">
+                                            <rect key="frame" x="252" y="64" width="107" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="Odu-mC-nbt"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="107" id="jRv-Zl-BWe"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="wbb-O8-BgX" secondAttribute="bottom" constant="25" id="1c5-sA-k3S"/>
+                                        <constraint firstAttribute="trailing" secondItem="j22-ez-t1V" secondAttribute="trailing" constant="131" id="EMZ-K9-KIc"/>
+                                        <constraint firstItem="j22-ez-t1V" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wbb-O8-BgX" secondAttribute="trailing" constant="8" symbolic="YES" id="JzC-Ut-tiH"/>
+                                        <constraint firstItem="Ebi-di-Bu1" firstAttribute="top" secondItem="PFg-Pa-EPL" secondAttribute="top" constant="11" id="Nb6-Lc-vnh"/>
+                                        <constraint firstAttribute="trailing" secondItem="r1l-Oc-qia" secondAttribute="trailing" constant="16" id="Nzc-pj-5zu"/>
+                                        <constraint firstItem="mfY-kC-jYo" firstAttribute="centerY" secondItem="wbb-O8-BgX" secondAttribute="centerY" id="Qge-VK-G5g"/>
+                                        <constraint firstAttribute="trailing" secondItem="Ebi-di-Bu1" secondAttribute="trailing" constant="16" id="Wg0-e3-iaC"/>
+                                        <constraint firstItem="wbb-O8-BgX" firstAttribute="top" secondItem="PFg-Pa-EPL" secondAttribute="top" constant="25" id="ZZi-ct-wgC"/>
+                                        <constraint firstAttribute="bottom" secondItem="j22-ez-t1V" secondAttribute="bottom" constant="36" id="aP6-I9-OsC"/>
+                                        <constraint firstItem="wbb-O8-BgX" firstAttribute="leading" secondItem="PFg-Pa-EPL" secondAttribute="leading" constant="16" id="iqj-HA-Lt1"/>
+                                        <constraint firstItem="mfY-kC-jYo" firstAttribute="centerX" secondItem="wbb-O8-BgX" secondAttribute="centerX" id="jYp-LM-Dqv"/>
+                                        <constraint firstItem="j22-ez-t1V" firstAttribute="top" secondItem="Ebi-di-Bu1" secondAttribute="bottom" constant="8" id="ppa-Dn-gN2"/>
+                                        <constraint firstItem="Ebi-di-Bu1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wbb-O8-BgX" secondAttribute="trailing" constant="8" symbolic="YES" id="pwK-GG-tdH"/>
+                                        <constraint firstItem="r1l-Oc-qia" firstAttribute="top" secondItem="Ebi-di-Bu1" secondAttribute="bottom" constant="8" id="txy-cU-G9R"/>
+                                        <constraint firstItem="r1l-Oc-qia" firstAttribute="leading" secondItem="j22-ez-t1V" secondAttribute="trailing" constant="8" id="voz-xY-csD"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layers" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="activity" destination="mfY-kC-jYo" id="AgR-7P-nix"/>
+                                    <outlet property="animeName" destination="Ebi-di-Bu1" id="wS9-3y-GvQ"/>
+                                    <outlet property="animeNumber" destination="j22-ez-t1V" id="FvL-4h-ilP"/>
+                                    <outlet property="dubOrSub" destination="r1l-Oc-qia" id="GwZ-bI-Lb7"/>
+                                    <outlet property="imageSeries" destination="wbb-O8-BgX" id="wWa-AJ-6ME"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="nia-Ee-kYJ" id="dzP-wS-2qL"/>
+                            <outlet property="delegate" destination="nia-Ee-kYJ" id="xq6-bj-4DM"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Последние серии" id="V01-h0-h4u"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="ayd-sm-oGQ">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <attributedString key="attributedTitle"/>
+                        <connections>
+                            <action selector="refreshLastTable:" destination="nia-Ee-kYJ" eventType="valueChanged" id="fQG-k6-lqs"/>
+                        </connections>
+                    </refreshControl>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ccR-Ks-IC2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1357.5999999999999" y="-1089.1625615763546"/>
         </scene>
         <!--Лист избранных аниме-->
         <scene sceneID="AcG-M5-5al">
@@ -462,11 +574,14 @@
         <scene sceneID="hpd-6w-0Do">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bho-Wv-BFI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Поиск" image="magnifyingglass" catalog="system" id="GAp-AH-lbB"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="Поиск" image="magnifyingglass" catalog="system" id="GAp-AH-lbB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4v5-Qh-lCE">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="18"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -486,6 +601,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="71A-5o-D2s">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="18"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -743,10 +861,33 @@
             </objects>
             <point key="canvasLocation" x="2277.5999999999999" y="-421.92118226600985"/>
         </scene>
+        <!--Последние серии-->
+        <scene sceneID="Gzf-HE-CNc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ru4-Rs-mFg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" tag="2" title="Последние серии" image="tv.circle" catalog="system" selectedImage="tv.circle" id="eLl-ro-dVJ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HWn-Mf-3Cm">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="18"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nia-Ee-kYJ" kind="relationship" relationship="rootViewController" id="rxq-r8-Nze"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ihm-rj-2Ro" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="593" y="-1089"/>
+        </scene>
     </scenes>
     <resources>
         <image name="icloud.and.arrow.down" catalog="system" width="128" height="112"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
+        <image name="tv.circle" catalog="system" width="128" height="121"/>
     </resources>
 </document>

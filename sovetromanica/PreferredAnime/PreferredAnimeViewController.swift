@@ -475,6 +475,10 @@ extension PreferredAnimeViewController: UICollectionViewDataSource,UICollectionV
         
         
         let urlSeries = crutch(url: readyURL)
+        if urlSeries == "error" {
+            errorAlert()
+            return
+        }
 
         DispatchQueue.main.async {
             guard let videoURL = URL(string: urlSeries) else {return}
@@ -498,37 +502,17 @@ extension PreferredAnimeViewController: UICollectionViewDataSource,UICollectionV
         
     }
     
-    //MARK: - Костыль для поиска в хтмл файле ссылки на файл серии
-
-    func crutch(url: URL) -> String {
-    
-        let html = try? String(contentsOf: url, encoding: String.Encoding.utf8)
-
-        let str = html!
-        var string = ""
-        if let index = str.index(of: "\", \"preroll") {
-        //    print (index)
-            let substring = str[..<index]   // ab
-            string = String(substring)
-//            print(string)
-            print("\"file\":\"https:")
-        
-            if let index = string.index(of: "\"file\":\"https:") {
-                let substring = string[index...]   // ab
-                let string = String(substring)
-                print(string)  // "ab\n"
-                if let index = string.index(of: "https:") {
-                    let substring = string[index...]   // ab
-                    let string = String(substring)
-                    print(string)  // "ab\n"
-                    return string
-                }
-            }
-        }
-
-        return "error"
+    func errorAlert() {
+        let alert = UIAlertController(title: "Ошибка воспроизведения", message: "Похоже в данный момент приложение не может найти ссылку на серию. Приносим свои извинения", preferredStyle: .alert)
+        let actionOk = UIAlertAction(title: "OK =(", style: .default, handler: nil)
+        alert.addAction(actionOk)
+        present(alert, animated: true, completion: nil)
         
     }
+
+
+    
+
     
 }
 
@@ -562,4 +546,46 @@ extension StringProtocol where Index == String.Index {
         }
         return result
     }
+
 }
+
+
+    //MARK: - Костыль для поиска в хтмл файле ссылки на файл серии
+
+     func crutch(url: URL) -> String {
+        
+        print ("test")
+        print (url)
+        let html = try? String(contentsOf: url, encoding: String.Encoding.utf8)
+
+        let str = html!
+        var string = ""
+//        print(str)
+        if let index = str.index(of: "\",   \"poster\"") {
+            print (index)
+            let substring = str[..<index]   // ab
+            string = String(substring)
+//            print(string)
+            print("\"file\":\"https:")
+        
+            if let index = string.index(of: "\"file\":\"https:") {
+                let substring = string[index...]   // ab
+                let string = String(substring)
+                print(string)  // "ab\n"
+                if let index = string.index(of: "https:") {
+                    let substring = string[index...]   // ab
+                    let string = String(substring)
+                    print(string)  // "ab\n"
+                    return string
+                }
+            }
+        }
+
+        
+        
+
+        return "error"
+        
+    }
+
+
